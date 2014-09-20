@@ -17,7 +17,7 @@
 
         public IEnumerable<Person> GetAll()
         {
-            return context.People.ToList();
+            return this.context.People.ToList();
         }
     }
 }

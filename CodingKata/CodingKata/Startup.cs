@@ -18,6 +18,9 @@ namespace CodingKata
             Database.SetInitializer<CodingKataContext>(null);
 
             var config = new HttpConfiguration();
+
+            config.DependencyResolver = AutofacSetup.Get();
+
             config.Routes.MapHttpRoute("DefaultApi", "api/{controller}/{id}", new { id = RouteParameter.Optional });
 
             app.UseWebApi(config);
