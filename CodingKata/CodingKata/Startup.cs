@@ -4,7 +4,10 @@
 
 namespace CodingKata
 {
+    using System.Data.Entity;
     using System.Web.Http;
+
+    using CodingKata.Core;
 
     using Owin;
 
@@ -12,6 +15,8 @@ namespace CodingKata
     {
         public void Configuration(IAppBuilder app)
         {
+            Database.SetInitializer<CodingKataContext>(null);
+
             var config = new HttpConfiguration();
             config.Routes.MapHttpRoute("DefaultApi", "api/{controller}/{id}", new { id = RouteParameter.Optional });
 
