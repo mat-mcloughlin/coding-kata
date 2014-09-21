@@ -88,6 +88,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\config.js" />
+    <Content Include="App\Pages\EditPage\edit.html" />
+    <Content Include="App\Pages\EditPage\edit.js" />
     <Content Include="App\Pages\HomePage\home.html" />
     <Content Include="App\Pages\HomePage\home.js" />
     <Content Include="App\Lib\bootstrap.js" />
@@ -118,14 +120,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutofacSetup.cs" />
+    <Compile Include="Controllers\ColourController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
+    <Compile Include="Core\ColourService.cs" />
+    <Compile Include="Core\IColourService.cs" />
+    <Compile Include="Dto\ColourDto.cs" />
+    <Compile Include="Dto\PersonDto.cs" />
     <Compile Include="Core\CodingKataContext.cs" />
-    <Compile Include="Core\FavouriteColour.cs" />
+    <Compile Include="Core\Colour.cs" />
+    <Compile Include="Core\IPersonService.cs" />
+    <Compile Include="Core\ColourMap.cs" />
     <Compile Include="Core\PeopleMap.cs" />
+    <Compile Include="Core\PersonService.cs" />
     <Compile Include="Core\Person.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="Dto\PersonBrief.cs" />
+    <Compile Include="Dto\PersonBriefDto.cs" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

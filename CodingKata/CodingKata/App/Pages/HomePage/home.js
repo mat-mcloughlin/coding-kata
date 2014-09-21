@@ -1,7 +1,6 @@
 define(['App/config', 'jquery', 'knockout', 'text!./home.html'], function (config, $, ko, homeTemplate) {
 
     function HomeViewModel(route) {
-        debugger;
         var self = this;
         self.people = ko.observableArray();
 

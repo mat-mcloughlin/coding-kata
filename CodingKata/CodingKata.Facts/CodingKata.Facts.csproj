@@ -71,7 +71,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ColourController.cs" />
     <Compile Include="Controllers\PersonControllerFacts.cs" />
+    <Compile Include="Core\PersonServiceFacts.cs" />
+    <Compile Include="Extensions\StringExtensionsFacts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

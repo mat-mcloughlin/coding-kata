@@ -11,9 +11,12 @@
 
         public virtual DbSet<Person> People { get; set; }
 
+        public virtual DbSet<Colour> Colours { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new PeopleMap());
+            modelBuilder.Configurations.Add(new ColourMap());
 
             base.OnModelCreating(modelBuilder);
         }

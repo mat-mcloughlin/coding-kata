@@ -3,6 +3,7 @@
     <thead>
         <tr>
             <th>Name</th>
+            <th>Palindrome</th>
             <th>Authorised</th>
             <th>Enabled</th>
             <th>Colours</th>
@@ -10,10 +11,11 @@
     </thead>
     <tbody data-bind="foreach: people">
         <tr>
-            <td data-bind="text: name"></td>
+            <td><a data-bind="text: name, attr: { href: '#person/' + id }"></a></td>
+            <td data-bind="text: isPalindrome, css: { 'boolean-true': !isPalindrome,'boolean-false': isPalindrome }"></td>
             <td data-bind="text: isAuthorised, css: { 'boolean-true': !isAuthorised,'boolean-false': isAuthorised }"></td>
             <td data-bind="text: isEnabled, css: { 'boolean-true': !isEnabled,'boolean-false': isEnabled }"></td>
-            <!--<td data-bind="text: colours"></td>-->
+            <td data-bind="text: colours"></td>
         </tr>
     </tbody>
 </table>

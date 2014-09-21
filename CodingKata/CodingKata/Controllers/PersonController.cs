@@ -1,7 +1,7 @@
 ﻿namespace CodingKata.Controllers
 {
     using System.Collections.Generic;
-    using System.Linq;
+    using System.Net;
     using System.Web.Http;
 
     using CodingKata.Core;
@@ -9,18 +9,31 @@
 
     public class PersonController : ApiController
     {
-        private readonly CodingKataContext context;
+        private readonly IPersonService personService;
 
-        public PersonController(CodingKataContext context)
+        public PersonController(IPersonService personService)
         {
-            this.context = context;
+            this.personService = personService;
         }
 
-        public IEnumerable<PersonBrief> GetAll()
+        public IEnumerable<PersonBriefDto> GetAll()
         {
-            return this.context.People
-                .ToList()
-                .Select(p => new PersonBrief(p.FirstName, p.LastName, p.IsAuthorised, p.IsEnabled));
+            return this.personService.GetAllBrief();
+        }
+
+        public PersonDto Get(int id)
+        {
+            return this.personService.Get(id);
+        }
+
+        public HttpStatusCode Post([FromBody]PersonDto personDto)
+        {
+            if (personDto == null)
+            {
+                return HttpStatusCode.BadRequest;
+            }
+
+            return this.personService.Update(personDto) ? HttpStatusCode.OK : HttpStatusCode.NotFound;
         }
     }
 }

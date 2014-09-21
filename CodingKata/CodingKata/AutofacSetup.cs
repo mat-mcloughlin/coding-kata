@@ -15,6 +15,8 @@
 
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             builder.Register(c => new CodingKataContext()).AsSelf().InstancePerRequest();
+            builder.RegisterType<PersonService>().As<IPersonService>();
+            builder.RegisterType<ColourService>().As<IColourService>();
 
             var container = builder.Build();
 

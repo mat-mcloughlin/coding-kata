@@ -1,0 +1,33 @@
+<h2 data-bind="text: 'Edit ' + person().name()"></h2>
+<form class="form-horizontal" role="form" data-bind="submit: submitForm">
+    <fieldset>
+        <legend>User Details</legend>
+        <div class="form-group">
+            <label for="isAuthorised" class="col-md-2" data-toggle-element="#isAuthorised">Authorised</label>
+            <span id="isAuthorised">
+                <input id="isAuthorised" name="isAuthorised" type="checkbox" data-bind="checked: person().isAuthorised" />
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="isEnabled" class="col-md-2" data-toggle-element="#isEnabled">Enabled</label>
+            <span id="isEnabled">
+                <input name="isEnabled" type="checkbox" data-bind="checked: person().isEnabled" />
+            </span>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Favourite Colours</legend>
+        <!-- ko foreach: colours -->
+        <div class="form-group">
+            <label class="col-md-2" data-bind="text: name, attr: { 'data-toggle-element': '#colour-' + name }"></label>
+            <span data-bind="attr: {id: 'colour-' + name }">
+                <input name=" colours" type="checkbox" data-bind="checked: $parent.person().colours, attr: { value: id}" />
+            </span>
+        </div>
+        <!-- /ko -->
+    </fieldset>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <a href="/#" class="btn btn-default">Cancel</a>
+    </div>
+</form>
