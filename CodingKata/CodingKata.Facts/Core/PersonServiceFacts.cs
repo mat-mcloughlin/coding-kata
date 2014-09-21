@@ -13,7 +13,7 @@
 
     public class PersonServiceFacts
     {
-        [Fact(Skip = "Problem testing includes :(")]
+        [Fact]
         public void GetAllBriefReturnsACollection()
         {
             var mockContext = this.GetMockContext();
@@ -28,8 +28,8 @@
             actual.First().Colours.ShouldBe("Red, Green, Blue");
         }
 
-        [Fact(Skip = "Problem testing includes :(")]
-        public void GeReturnById()
+        [Fact]
+        public void GetReturnById()
         {
             var mockContext = this.GetMockContext();
             var service = new PersonService(mockContext.Object);
@@ -46,9 +46,9 @@
         {
             var data = new List<Person> 
             { 
-                new Person { FirstName = "Willis", LastName = "Tibbs", IsEnabled = true, IsAuthorised = true, FavouriteColours = this.GetMockColours() }, 
-                new Person { FirstName = "Sharon", LastName = "Halt", IsEnabled = true, IsAuthorised = true, FavouriteColours = this.GetMockColours() }, 
-                new Person { FirstName = "Patrick", LastName = "Kerr", IsEnabled = true, IsAuthorised = true, FavouriteColours = this.GetMockColours() }, 
+                new Person { Id = 1, FirstName = "Willis", LastName = "Tibbs", IsEnabled = true, IsAuthorised = true, FavouriteColours = this.GetMockColours() }, 
+                new Person { Id = 2, FirstName = "Sharon", LastName = "Halt", IsEnabled = true, IsAuthorised = true, FavouriteColours = this.GetMockColours() }, 
+                new Person { Id = 3, FirstName = "Patrick", LastName = "Kerr", IsEnabled = true, IsAuthorised = true, FavouriteColours = this.GetMockColours() }, 
             }.AsQueryable();
 
             var mockDbSet = new Mock<DbSet<Person>>();
@@ -56,6 +56,7 @@
             mockDbSet.As<IQueryable<Person>>().Setup(m => m.Expression).Returns(data.Expression);
             mockDbSet.As<IQueryable<Person>>().Setup(m => m.ElementType).Returns(data.ElementType);
             mockDbSet.As<IQueryable<Person>>().Setup(m => m.GetEnumerator()).Returns(data.GetEnumerator());
+            mockDbSet.Setup(m => m.Include(It.IsAny<string>())).Returns(mockDbSet.Object);
 
             var mockContext = new Mock<CodingKataContext>();
             mockContext.Setup(c => c.People).Returns(mockDbSet.Object);

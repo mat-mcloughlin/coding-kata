@@ -1,0 +1,11 @@
+﻿.boolean-false {
+    color: #5cb85c;
+}
+
+.boolean-true {
+    color: #d9534f;
+}
+
+.form-horizontal .form-group {
+    margin-left: 20px;
+}

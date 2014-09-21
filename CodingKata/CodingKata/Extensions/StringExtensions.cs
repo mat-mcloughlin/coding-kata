@@ -7,6 +7,7 @@
         public static bool IsPalindrome(this string str)
         {
             var sanitisedString = str.ToLower().Replace(" ", string.Empty);
+
             return sanitisedString.SequenceEqual(sanitisedString.Reverse());
         }
     }

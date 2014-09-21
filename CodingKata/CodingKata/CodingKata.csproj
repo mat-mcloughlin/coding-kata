@@ -104,14 +104,9 @@
     <Content Include="App\router.js" />
     <Content Include="App\startup.js" />
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\styles.css" />
     <Content Include="index.html" />
     <Content Include="packages.config" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config">

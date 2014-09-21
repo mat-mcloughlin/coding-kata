@@ -22,14 +22,14 @@
             }
         }
 
-        public int Id { get; set; }
+        public int Id { get; private set; }
 
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
-        public bool IsAuthorised { get; set; }
+        public bool IsAuthorised { get; private set; }
 
-        public bool IsEnabled { get; set; }
+        public bool IsEnabled { get; private set; }
 
-        public ICollection<int> Colours { get; set; }
+        public ICollection<int> Colours { get; private set; }
     }
 }

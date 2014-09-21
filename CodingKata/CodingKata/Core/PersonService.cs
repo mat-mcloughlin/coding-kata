@@ -25,7 +25,7 @@
         public PersonDto Get(int id)
         {
             var person = this.context.People.Include("FavouriteColours")
-                 .FirstOrDefault(p=> p.Id == id);
+                 .FirstOrDefault(p => p.Id == id);
 
             if (person != null)
             {
@@ -50,9 +50,10 @@
             {
                 return false;
             }
+
             person.IsAuthorised = personDto.IsAuthorised;
             person.IsEnabled = personDto.IsEnabled;
-            
+
             person.FavouriteColours.Clear();
             var colours = this.context.Colours.Where(c => personDto.Colours.Contains(c.Id));
             foreach (var colour in colours)
