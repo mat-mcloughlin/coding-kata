@@ -87,7 +87,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Index.html" />
+    <Content Include="App\config.js" />
+    <Content Include="App\Pages\HomePage\home.html" />
+    <Content Include="App\Pages\HomePage\home.js" />
+    <Content Include="App\Lib\bootstrap.js" />
+    <Content Include="App\Lib\crossroads.js" />
+    <Content Include="App\Lib\hasher.js" />
+    <Content Include="App\Lib\jquery.js" />
+    <Content Include="App\Lib\knockout.js" />
+    <Content Include="App\Lib\require.js" />
+    <Content Include="App\Lib\signals.js" />
+    <Content Include="App\Lib\text.js" />
+    <Content Include="App\require.config.js" />
+    <Content Include="App\router.js" />
+    <Content Include="App\startup.js" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="index.html" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -105,10 +120,12 @@
     <Compile Include="AutofacSetup.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Core\CodingKataContext.cs" />
+    <Compile Include="Core\FavouriteColour.cs" />
     <Compile Include="Core\PeopleMap.cs" />
     <Compile Include="Core\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Dto\PersonBrief.cs" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

@@ -1,0 +1,19 @@
+<h2>People</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Authorised</th>
+            <th>Enabled</th>
+            <th>Colours</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: people">
+        <tr>
+            <td data-bind="text: name"></td>
+            <td data-bind="text: isAuthorised, css: { 'boolean-true': !isAuthorised,'boolean-false': isAuthorised }"></td>
+            <td data-bind="text: isEnabled, css: { 'boolean-true': !isEnabled,'boolean-false': isEnabled }"></td>
+            <!--<td data-bind="text: colours"></td>-->
+        </tr>
+    </tbody>
+</table>

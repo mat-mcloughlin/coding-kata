@@ -1,9 +1,22 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
-    <title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Coding Kata</title>
+    <link href="Content/bootstrap.css" rel="stylesheet">
+    <script src="App/require.config.js"></script>
+    <script data-main="App/startup" src="App/Lib/require.js"></script>
+    <style>
+        .boolean-false {
+            color: #5cb85c;
+        }
+        .boolean-true {
+            color: #d9534f;
+        }
+    </style>
 </head>
 <body>
-    <h1>Home</h1>
+    <div id="page" class="container" data-bind="component: { name: route().page, params: route }"></div>
 </body>
 </html>

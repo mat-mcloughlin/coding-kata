@@ -23,16 +23,18 @@
             var actual = controller.GetAll().ToList();
 
             actual.Count().ShouldBe(3);
-            actual.First().FirstName.ShouldBe("BBB");
+            actual.First().Name.ShouldBe("Willis Tibbs");
+            actual.First().IsEnabled.ShouldBeTrue();
+            actual.First().IsAuthorised.ShouldBeTrue();
         }
 
         public Mock<CodingKataContext> GetMockContext()
         {
             var data = new List<Person> 
             { 
-                new Person { FirstName = "BBB" }, 
-                new Person { FirstName = "ZZZ" }, 
-                new Person { FirstName = "AAA" }, 
+                new Person { FirstName = "Willis", LastName = "Tibbs", IsEnabled = true, IsAuthorised = true }, 
+                new Person { FirstName = "Sharon", LastName = "Halt", IsEnabled = true, IsAuthorised = true }, 
+                new Person { FirstName = "Patrick", LastName = "Kerr", IsEnabled = true, IsAuthorised = true }, 
             }.AsQueryable();
 
             var mockDbSet = new Mock<DbSet<Person>>();

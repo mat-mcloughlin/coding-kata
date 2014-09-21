@@ -5,6 +5,7 @@
     using System.Web.Http;
 
     using CodingKata.Core;
+    using CodingKata.Dto;
 
     public class PersonController : ApiController
     {
@@ -15,9 +16,11 @@
             this.context = context;
         }
 
-        public IEnumerable<Person> GetAll()
+        public IEnumerable<PersonBrief> GetAll()
         {
-            return this.context.People.ToList();
+            return this.context.People
+                .ToList()
+                .Select(p => new PersonBrief(p.FirstName, p.LastName, p.IsAuthorised, p.IsEnabled));
         }
     }
 }

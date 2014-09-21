@@ -9,6 +9,9 @@ namespace CodingKata
 
     using CodingKata.Core;
 
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Serialization;
+
     using Owin;
 
     public class Startup
@@ -18,6 +21,11 @@ namespace CodingKata
             Database.SetInitializer<CodingKataContext>(null);
 
             var config = new HttpConfiguration();
+
+            var jsonFormatter = config.Formatters.JsonFormatter;
+            var settings = jsonFormatter.SerializerSettings;
+            settings.Formatting = Formatting.Indented;
+            settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
             config.DependencyResolver = AutofacSetup.Get();
 
