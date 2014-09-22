@@ -55,14 +55,19 @@
             person.IsEnabled = personDto.IsEnabled;
 
             person.FavouriteColours.Clear();
+            this.UpdateColours(personDto, person);
+
+            this.context.SaveChanges();
+            return true;
+        }
+
+        private void UpdateColours(PersonDto personDto, Person person)
+        {
             var colours = this.context.Colours.Where(c => personDto.Colours.Contains(c.Id));
             foreach (var colour in colours)
             {
                 person.FavouriteColours.Add(colour);
             }
-
-            this.context.SaveChanges();
-            return true;
         }
     }
 }

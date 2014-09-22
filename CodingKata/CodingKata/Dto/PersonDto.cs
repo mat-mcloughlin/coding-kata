@@ -30,6 +30,6 @@
 
         public bool IsEnabled { get; private set; }
 
-        public ICollection<int> Colours { get; private set; }
+        public ICollection<int> Colours { get; set; }
     }
 }
